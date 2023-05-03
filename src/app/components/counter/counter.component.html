@@ -1,5 +1,6 @@
 <div class="container">
   <div>{{ counter }}</div>
+  <div>{{ counter | primeNumber }}</div>
   <div class="actions">
     <app-button [text]="'-1'" [color]="'red'" (buttonClicked)="minus()"></app-button>
     <app-button [text]="'+1'" [color]="'green'" (buttonClicked)="add()"></app-button>
