@@ -17,4 +17,8 @@ export class CounterComponent {
     this.counter--;
   }
 
+  clear(): void {
+    this.counter = 0;
+  }
+
 }

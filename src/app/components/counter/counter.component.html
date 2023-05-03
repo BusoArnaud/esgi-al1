@@ -3,6 +3,7 @@
   <div class="actions">
     <app-button [text]="'-1'" [color]="'red'" (buttonClicked)="minus()"></app-button>
     <app-button [text]="'+1'" [color]="'green'" (buttonClicked)="add()"></app-button>
+    <div appCustomButton [appCustomButtonText]="'Clear'" (buttonClicked)="clear()"></div>
   </div>
 </div>
 
