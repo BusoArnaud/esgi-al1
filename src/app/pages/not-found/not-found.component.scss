@@ -1,0 +1,14 @@
+div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  p:nth-child(1) {
+    font-size: 10rem;
+  }
+
+  p:nth-child(2) {
+    font-size: 3rem;
+  }
+}

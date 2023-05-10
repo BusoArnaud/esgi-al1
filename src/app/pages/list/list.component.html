@@ -1,0 +1,6 @@
+<ng-container *ngFor="let res of restaurants">
+  <div class="container" [routerLink]="['/detail', res.id]" [state]="{data: res.food}">
+    <h4>{{ res.title }}</h4>
+    <p>{{ res.desc }}</p>
+  </div>
+</ng-container>

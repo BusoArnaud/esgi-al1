@@ -7,7 +7,9 @@ import { CounterComponent } from './components/counter/counter.component';
 import { ButtonComponent } from './components/button/button.component';
 import { CustomButtonDirective } from './directives/custom-button.directive';
 import { PrimeNumberPipe } from './pipes/prime-number.pipe';
-import { ListComponent } from './components/list/list.component';
+import { DetailComponent } from './pages/detail/detail.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { ListComponent } from "./pages/list/list.component";
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { ListComponent } from './components/list/list.component';
     ButtonComponent,
     CustomButtonDirective,
     PrimeNumberPipe,
-    ListComponent
+    ListComponent,
+    DetailComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
