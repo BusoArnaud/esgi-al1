@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {RestaurantServiceService} from "../../services/restaurant-service.service";
 
 @Component({
   templateUrl: './list.component.html',
@@ -6,25 +7,12 @@ import { Component } from '@angular/core';
 })
 export class ListComponent {
 
-  restaurants: Array<{id: number; title: string; desc: string; food: Array<string>}> = [
-    {
-      id: 1,
-      title: 'Fontaine de Trevi',
-      desc: 'Cuisine de famille italienne',
-      food: ['pizza', 'pasta', 'tiramisu']
-    },
-    {
-      id: 2,
-      title: 'Taj Mahal',
-      desc: 'Cuisine indienne',
-      food: ['masala dosa', 'dal makhani', 'pani puri']
-    },
-    {
-      id: 3,
-      title: 'Sanctuaire Asakusa',
-      desc: 'Cuisine japonaise',
-      food: ['onigiri', 'sushi & sashimi', 'ramen']
-    }
-  ];
+  restaurants: Array<{id: number; title: string; desc: string; food: Array<string>}> = [];
+
+  constructor(
+    private restaurantService: RestaurantServiceService
+  ) {
+    this.restaurants = this.restaurantService.getRestaurants();
+  }
 
 }
