@@ -1,0 +1,36 @@
+<form (ngSubmit)="submitRestaurant()">
+
+  <mat-form-field>
+    <mat-label>Title</mat-label>
+    <input matInput type="text" required [(ngModel)]="restaurantTitle" #resTitle="ngModel"
+           [ngModelOptions]="{standalone: true}">
+    <button matSuffix mat-icon-button aria-label="Clear" (click)="restaurantTitle = ''">
+      <mat-icon>close</mat-icon>
+    </button>
+    <mat-error *ngIf="resTitle.hasError('required')">
+      Title is <strong>required</strong>
+    </mat-error>
+    <mat-error *ngIf="alreadyExist">
+      This restaurant name already exists !
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <input matInput type="text" required [(ngModel)]="restaurantDescription" #resDesc="ngModel"
+           [ngModelOptions]="{standalone: true}">
+    <button matSuffix mat-icon-button aria-label="Clear" (click)="restaurantDescription = ''">
+      <mat-icon>close</mat-icon>
+    </button>
+    <mat-error *ngIf="resDesc.hasError('required')">
+      Description is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <div class="back">
+    <app-button [text]="'Back'" [color]="'blue'" [routerLink]="['/restaurant']"></app-button>
+    <app-button type="submit" [text]="'Submit'" [disabled]="resTitle.hasError('required') || resDesc.hasError('required')"></app-button>
+  </div>
+
+
+</form>

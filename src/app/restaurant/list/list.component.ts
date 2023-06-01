@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {RestaurantServiceService} from "../../services/restaurant-service.service";
+import {RestaurantService} from "../services/restaurant.service";
 
 @Component({
   templateUrl: './list.component.html',
@@ -10,7 +10,7 @@ export class ListComponent {
   restaurants: Array<{id: number; title: string; desc: string; food: Array<string>}> = [];
 
   constructor(
-    private restaurantService: RestaurantServiceService
+    private restaurantService: RestaurantService
   ) {
     this.restaurants = this.restaurantService.getRestaurants();
   }

@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, NgModule, Output} from '@angular/core';
 import {CommonModule} from "@angular/common";
+import {MatButtonModule} from "@angular/material/button";
 
 @Component({
   selector: 'app-button',
@@ -10,6 +11,7 @@ export class ButtonComponent {
 
   @Input() text: string = 'default';
   @Input() color: string = 'grey';
+  @Input() disabled: boolean = false;
   @Output() buttonClicked = new EventEmitter<void>();
 
   emitEvent(): void {
@@ -21,6 +23,6 @@ export class ButtonComponent {
 @NgModule({
   declarations: [ButtonComponent],
   exports: [ButtonComponent],
-  imports: [CommonModule]
+  imports: [CommonModule, MatButtonModule]
 })
 export class ButtonModule {}

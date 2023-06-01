@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class RestaurantServiceService {
+export class RestaurantService {
 
   private restaurants: Array<{id: number; title: string; desc: string; food: Array<string>}> = [
     {
@@ -33,6 +33,14 @@ export class RestaurantServiceService {
   getFood(id: number) {
     const a = this.restaurants.filter(res => res.id === id);
     return a[0].food;
+  }
+
+  addNewRestaurant(restaurant: {title: string; desc: string; food: Array<string>}) {
+    this.restaurants.push({...restaurant, id: this.restaurants.length + 1})
+  }
+
+  canCreateRestaurant(title: string | null) {
+    return this.restaurants.findIndex(res => res.title === title);
   }
 
 }

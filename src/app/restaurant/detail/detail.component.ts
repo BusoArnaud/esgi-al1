@@ -1,7 +1,7 @@
 import {Component, OnDestroy} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {Subscription} from "rxjs";
-import {RestaurantServiceService} from "../../services/restaurant-service.service";
+import {RestaurantService} from "../services/restaurant.service";
 
 @Component({
   templateUrl: './detail.component.html',
@@ -15,7 +15,7 @@ export class DetailComponent implements OnDestroy {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private resService: RestaurantServiceService,
+    private resService: RestaurantService,
   ) {
     this.routeSub = this.route.params.subscribe(params => {
       this.dishes = this.resService.getFood(+params['id']);
