@@ -1,4 +1,5 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, NgModule, Output} from '@angular/core';
+import {CommonModule} from "@angular/common";
 
 @Component({
   selector: 'app-button',
@@ -16,3 +17,10 @@ export class ButtonComponent {
   }
 
 }
+
+@NgModule({
+  declarations: [ButtonComponent],
+  exports: [ButtonComponent],
+  imports: [CommonModule]
+})
+export class ButtonModule {}

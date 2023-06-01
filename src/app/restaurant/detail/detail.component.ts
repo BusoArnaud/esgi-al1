@@ -18,18 +18,12 @@ export class DetailComponent implements OnDestroy {
     private resService: RestaurantServiceService,
   ) {
     this.routeSub = this.route.params.subscribe(params => {
-      console.log(params) //log the entire params object
-      console.log(params['id']) //log the value of id
       this.dishes = this.resService.getFood(+params['id']);
     });
   }
 
   ngOnDestroy() {
     this.routeSub.unsubscribe();
-  }
-
-  backWithHistory(): void {
-    history.back();
   }
 
   backWithRouter(): void {
