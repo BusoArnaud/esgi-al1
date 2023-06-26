@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Subject} from "rxjs";
+import {BehaviorSubject, Subject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -7,10 +7,15 @@ import {Subject} from "rxjs";
 export class HandleService {
 
   counter = 0;
-  counter$= new Subject<number>();
+  counter$= new BehaviorSubject<number>(this.counter);
 
   addOne() {
     this.counter += 1;
+    this.counter$.next(this.counter);
+  }
+
+  reset(): void {
+    this.counter = 0;
     this.counter$.next(this.counter);
   }
 }

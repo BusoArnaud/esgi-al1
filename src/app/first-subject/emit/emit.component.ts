@@ -20,4 +20,8 @@ export class EmitComponent {
     this.handleService.addOne();
   }
 
+  reset(): void {
+    this.handleService.reset();
+  }
+
 }
