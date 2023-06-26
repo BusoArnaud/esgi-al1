@@ -1,6 +1,9 @@
 <form (ngSubmit)="submitRestaurant()">
 
+  <mat-error *ngIf="alreadyExist">{{alreadyExist}}</mat-error>
+
   <mat-form-field>
+    <mat-error *ngIf="alreadyExist && resTitle.valid">{{alreadyExist}}</mat-error>
     <mat-label>Title</mat-label>
     <input matInput type="text" required [(ngModel)]="restaurantTitle" #resTitle="ngModel"
            [ngModelOptions]="{standalone: true}">
@@ -10,7 +13,7 @@
     <mat-error *ngIf="resTitle.hasError('required')">
       Title is <strong>required</strong>
     </mat-error>
-    <mat-error *ngIf="alreadyExist">
+    <mat-error *ngIf="alreadyExist && resTitle.valid">
       This restaurant name already exists !
     </mat-error>
   </mat-form-field>

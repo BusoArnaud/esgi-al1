@@ -1,0 +1,20 @@
+<form (ngSubmit)="saveRestaurant()">
+
+  <mat-form-field>
+    <mat-label>Title</mat-label>
+    <input matInput type="text" [formControl]="restaurantForm.controls.restaurantTitleControl" required>
+    <mat-error *ngIf="restaurantForm.controls.restaurantTitleControl.invalid">Title is <strong>required</strong></mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <input matInput type="text" [formControl]="restaurantForm.controls.restaurantDescriptionControl" required>
+    <mat-error *ngIf="restaurantForm.controls.restaurantDescriptionControl.invalid">Description is <strong>required</strong></mat-error>
+  </mat-form-field>
+
+  <div class="back">
+    <app-button [text]="'Back'" [color]="'blue'" [routerLink]="['/restaurant']"></app-button>
+    <app-button type="submit" [text]="'Submit'" [disabled]="restaurantForm.invalid" ></app-button>
+  </div>
+
+</form>

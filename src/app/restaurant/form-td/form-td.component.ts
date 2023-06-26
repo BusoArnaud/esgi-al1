@@ -6,11 +6,10 @@ import {RestaurantService} from "../services/restaurant.service";
   selector: 'app-form-td',
   templateUrl: './form-td.component.html',
   styleUrls: ['./form-td.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormTDComponent {
 
-  restaurantTitle: string = 'New';
+  restaurantTitle: string = '';
   restaurantDescription: string = '';
 
   alreadyExist = false;
@@ -26,6 +25,7 @@ export class FormTDComponent {
         {title: this.restaurantTitle, desc: this.restaurantDescription, food: []}
       );
     } else {
+      console.log('exist');
       this.alreadyExist = true;
     }
   }

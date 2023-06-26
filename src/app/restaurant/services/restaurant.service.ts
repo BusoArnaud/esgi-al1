@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RestaurantService {
 
-  private restaurants: Array<{id: number; title: string; desc: string; food: Array<string>}> = [
+  private restaurants: Array<{ id: number; title: string; desc: string; food: Array<string> }> = [
     {
       id: 1,
       title: 'Fontaine de Trevi',
@@ -35,7 +35,7 @@ export class RestaurantService {
     return a[0].food;
   }
 
-  addNewRestaurant(restaurant: {title: string; desc: string; food: Array<string>}) {
+  addNewRestaurant(restaurant: { title: string; desc: string; food: Array<string> }) {
     this.restaurants.push({...restaurant, id: this.restaurants.length + 1})
   }
 

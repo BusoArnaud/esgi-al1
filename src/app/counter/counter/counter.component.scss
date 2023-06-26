@@ -3,9 +3,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 
   div:is(:first-child) {
     font-size: 5rem;
+    margin-bottom: 25px;
   }
 
   .actions {

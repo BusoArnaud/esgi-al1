@@ -27,6 +27,6 @@ export class DetailComponent implements OnDestroy {
   }
 
   backWithRouter(): void {
-    this.router.navigate(['/list']).then();
+    this.router.navigate(['/restaurant']).then();
   }
 }
