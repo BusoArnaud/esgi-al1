@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {RestaurantService} from "./restaurant/services/restaurant.service";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-root',
@@ -10,8 +11,16 @@ export class AppComponent {
 
   constructor(
     private restaurantService: RestaurantService,
+    private translate: TranslateService,
   ) {
     this.restaurantService.getRestaurants();
+    // this language will be used as a fallback when a translation isn't found in the current language
+    translate.setDefaultLang('en');
+    // the lang to use, if the lang isn't available, it will use the current loader to get them
+    translate.use('en');
+  }
 
+  lang(lg: string) {
+    this.translate.use(lg);
   }
 }

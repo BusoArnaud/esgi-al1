@@ -1,3 +1,7 @@
+{{'restaurant.hello' | translate }}
+<br>
+{{'restaurant.message' | translate}}
+
 <ng-container *ngFor="let res of (restaurantsSub$ | async)">
   <div class="container" [routerLink]="['detail', res.id]">
     <h4>{{ res.title }}</h4>

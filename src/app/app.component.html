@@ -4,6 +4,10 @@
     <li><a routerLink="/restaurant" routerLinkActive="active" ariaCurrentWhenActive="page">List</a></li>
     <li><a routerLink="/firstSubject" routerLinkActive="active" ariaCurrentWhenActive="page">Subject</a></li>
   </ul>
+  <ul>
+    <li class="lang" (click)="lang('en')">English</li>
+    <li class="lang" (click)="lang('fr')">French</li>
+  </ul>
 </nav>
 
 <router-outlet></router-outlet>

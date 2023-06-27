@@ -11,6 +11,11 @@ nav {
     li {
       margin: 5px;
 
+      &.lang {
+        color: white;
+        cursor: pointer;
+      }
+
       a {
         text-decoration: none;
         color: white;
