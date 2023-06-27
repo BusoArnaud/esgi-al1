@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {RestaurantService} from "../services/restaurant.service";
+import {RestaurantModel} from "../models/restaurant.model";
+import {Observable} from "rxjs";
 
 @Component({
   templateUrl: './list.component.html',
@@ -7,12 +9,13 @@ import {RestaurantService} from "../services/restaurant.service";
 })
 export class ListComponent {
 
-  restaurants: Array<{id: number; title: string; desc: string; food: Array<string>}> = [];
+  restaurants: Array<RestaurantModel> = [];
+  restaurantsSub$: Observable<Array<RestaurantModel>>;
 
   constructor(
     private restaurantService: RestaurantService
   ) {
-    this.restaurants = this.restaurantService.getRestaurants();
+    this.restaurantsSub$ = this.restaurantService.restaurants$;
   }
 
 }

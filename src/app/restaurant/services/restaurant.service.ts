@@ -1,45 +1,44 @@
 import {Injectable} from '@angular/core';
+import {RestaurantModel} from "../models/restaurant.model";
+import {BehaviorSubject, Subject, take} from "rxjs";
+import {RestaurantServiceApi} from "./restaurant.service-api";
 
 @Injectable({
   providedIn: 'root'
 })
 export class RestaurantService {
 
-  private restaurants: Array<{ id: number; title: string; desc: string; food: Array<string> }> = [
-    {
-      id: 1,
-      title: 'Fontaine de Trevi',
-      desc: 'Cuisine de famille italienne',
-      food: ['pizza', 'pasta', 'tiramisu']
-    },
-    {
-      id: 2,
-      title: 'Taj Mahal',
-      desc: 'Cuisine indienne',
-      food: ['masala dosa', 'dal makhani', 'pani puri']
-    },
-    {
-      id: 3,
-      title: 'Sanctuaire Asakusa',
-      desc: 'Cuisine japonaise',
-      food: ['onigiri', 'sushi & sashimi', 'ramen']
-    }
-  ];
+  private restaurants: Array<RestaurantModel> = [];
+  restaurants$: BehaviorSubject<Array<RestaurantModel>> = new BehaviorSubject<Array<RestaurantModel>>(this.restaurants);
 
-  getRestaurants() {
-    return this.restaurants;
+  constructor(
+    private restaurantServiceApi: RestaurantServiceApi
+  ) {
   }
 
-  getFood(id: number) {
+  getRestaurants(): void {
+    this.restaurantServiceApi
+      .getMock()
+      .pipe(take(1))
+      .subscribe((res: Array<RestaurantModel>) =>  {
+        this.restaurants = res;
+        this.restaurants$.next(this.restaurants);
+      });
+
+  }
+
+  getFood(id: number): Array<string> {
     const a = this.restaurants.filter(res => res.id === id);
     return a[0].food;
   }
 
-  addNewRestaurant(restaurant: { title: string; desc: string; food: Array<string> }) {
-    this.restaurants.push({...restaurant, id: this.restaurants.length + 1})
+  addNewRestaurant(restaurant: { title: string; desc: string; food: Array<string> }): void {
+    this.restaurants.push({...restaurant, id: this.restaurants.length + 1});
+    console.log(this.restaurants);
+    this.restaurants$.next(this.restaurants);
   }
 
-  canCreateRestaurant(title: string | null) {
+  canCreateRestaurant(title: string | null): number {
     return this.restaurants.findIndex(res => res.title === title);
   }
 
