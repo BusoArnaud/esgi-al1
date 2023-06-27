@@ -10,7 +10,6 @@ import {ButtonModule} from "../../components/button/button.component";
   imports: [ButtonModule]
 })
 export class EmitComponent {
-
   constructor(
     private handleService: HandleService
   ) {

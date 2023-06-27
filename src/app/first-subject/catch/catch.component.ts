@@ -1,6 +1,6 @@
 import {Component, OnDestroy} from '@angular/core';
 import {HandleService} from "../handle.service";
-import {map, Subscription} from "rxjs";
+import {map, Observable} from "rxjs";
 import {AsyncPipe} from "@angular/common";
 
 @Component({
@@ -10,11 +10,11 @@ import {AsyncPipe} from "@angular/common";
   standalone: true,
   imports: [AsyncPipe]
 })
+
 export class CatchComponent {
 
   counter!: number;
-  counterSub$;
-
+  counterSub$: Observable<number>;
 
   constructor(
     private handleService: HandleService

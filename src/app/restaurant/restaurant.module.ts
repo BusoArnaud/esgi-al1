@@ -11,8 +11,6 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import { FormRFComponent } from './form-rf/form-rf.component';
 
-
-
 @NgModule({
   declarations: [
     ListComponent,

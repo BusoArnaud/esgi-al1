@@ -9,6 +9,5 @@ import {CatchComponent} from "./catch/catch.component";
   standalone: true,
   imports: [EmitComponent, CatchComponent]
 })
-export class FirstSubjectComponent {
 
-}
+export class FirstSubjectComponent {}
