@@ -1,5 +1,5 @@
 import {createFeatureSelector, createSelector} from "@ngrx/store";
-import {RestaurantModel} from "../restaurant/models/restaurant.model";
+import {RestaurantModel} from "../models/restaurant.model";
 interface restaurantState {
   list: Array<RestaurantModel>
 }

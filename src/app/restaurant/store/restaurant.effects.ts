@@ -1,13 +1,13 @@
 import {Injectable} from "@angular/core";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
-import {RestaurantServiceApi} from "../restaurant/services/restaurant.service-api";
-import * as RestaurantActions from "./app.actions";
+import {RestaurantServiceApi} from "../services/restaurant.service-api";
+import * as RestaurantActions from "./restaurant.actions";
 import {map, mergeMap} from "rxjs";
-import {RestaurantModel} from "../restaurant/models/restaurant.model";
+import {RestaurantModel} from "../models/restaurant.model";
 import {Store} from "@ngrx/store";
 
 @Injectable()
-export class AppEffects {
+export class RestaurantEffects {
 
   constructor(private actions$: Actions, private restaurantServiceApi: RestaurantServiceApi, private store: Store) {
   }

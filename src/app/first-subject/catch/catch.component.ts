@@ -13,7 +13,6 @@ import {AsyncPipe} from "@angular/common";
 
 export class CatchComponent {
 
-  counter!: number;
   counterSub$: Observable<number>;
 
   constructor(

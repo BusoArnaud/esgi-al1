@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {RestaurantService} from "./restaurant/services/restaurant.service";
 import {TranslateService} from "@ngx-translate/core";
 import {Store} from "@ngrx/store";
-import * as RestaurantActions from "../app/store/app.actions";
+import * as RestaurantActions from "./restaurant/store/restaurant.actions";
 
 @Component({
   selector: 'app-root',

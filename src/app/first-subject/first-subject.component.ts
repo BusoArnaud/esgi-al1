@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {EmitComponent} from "./emit/emit.component";
 import {CatchComponent} from "./catch/catch.component";
 
@@ -7,7 +7,11 @@ import {CatchComponent} from "./catch/catch.component";
   templateUrl: './first-subject.component.html',
   styleUrls: ['./first-subject.component.scss'],
   standalone: true,
-  imports: [EmitComponent, CatchComponent]
+  imports: [
+    CatchComponent,
+    EmitComponent
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class FirstSubjectComponent {}
