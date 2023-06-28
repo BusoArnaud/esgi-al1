@@ -35,9 +35,9 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
-    StoreModule.forRoot({restaurants: restaurantsReducer}),
+    StoreModule.forRoot({restaurant: restaurantsReducer}),
+    EffectsModule.forRoot([AppEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-    EffectsModule.forRoot([AppEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]
