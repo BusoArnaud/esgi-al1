@@ -34,7 +34,6 @@ export class RestaurantService {
 
   addNewRestaurant(restaurant: { title: string; desc: string; food: Array<string> }): void {
     this.restaurants.push({...restaurant, id: this.restaurants.length + 1});
-    console.log(this.restaurants);
     this.restaurants$.next(this.restaurants);
   }
 

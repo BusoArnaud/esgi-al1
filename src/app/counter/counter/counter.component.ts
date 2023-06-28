@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {ButtonModule} from "../../components/button/button.component";
 import {SharedModule} from "../../shared/shared.module";
 
@@ -7,6 +7,7 @@ import {SharedModule} from "../../shared/shared.module";
   templateUrl: './counter.component.html',
   styleUrls: ['./counter.component.scss'],
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [ButtonModule, SharedModule]
 })
 export class CounterComponent {

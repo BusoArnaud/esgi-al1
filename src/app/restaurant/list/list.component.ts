@@ -9,7 +9,6 @@ import {Observable} from "rxjs";
 })
 export class ListComponent {
 
-  restaurants: Array<RestaurantModel> = [];
   restaurantsSub$: Observable<Array<RestaurantModel>>;
 
   constructor(
